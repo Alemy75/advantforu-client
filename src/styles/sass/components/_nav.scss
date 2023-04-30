@@ -1,0 +1,42 @@
+@import "../vars";
+.nav {
+  z-index: 1000;
+  height: 80px;
+  top: 0;
+  width: 100%;
+  border-bottom: 1px solid #cccccc50;
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+  }
+  &__btn {
+    position: relative;
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    &:hover {
+      & .first {
+        width: 100%;
+      }
+      & .second {
+        width: 75%;
+      }
+      & .third {
+        width: 50%;
+      }
+    }
+    & span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background-color: $green;
+      transition: all 0.1s ease;
+    }
+  }
+}

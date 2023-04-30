@@ -1,0 +1,36 @@
+.header {
+  min-height: 80vh;
+  border-bottom: 1px solid #cccccc50;
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5vh;
+
+  }
+  &__left {
+    width: 60%;
+    @media (max-width: 910px) {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+  }
+  &__img {
+    width: 30%;
+    transition: all 0.5s ease;
+    @media (max-width: 900px) {
+      display: none;
+    }
+    &:hover {
+      transform: rotate(20deg);
+    }
+  }
+}
+
+.bightml {
+  font-size: 1.5rem;
+}
+
+
+

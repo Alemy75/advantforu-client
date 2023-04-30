@@ -1,0 +1,47 @@
+@import "vars";
+
+.green {
+  color: $green;
+}
+
+a {
+  all: unset;
+}
+
+.button {
+  padding: 1rem 2rem;
+  color: white;
+  background-color: $green;
+  border-radius: 2rem;
+  transition: all 0.1s ease;
+  &:hover {
+    background-color: $green_dark;
+    cursor: pointer;
+    box-shadow: 0 10px 10px #00000020;
+  }
+}
+
+.a {
+  color: $primary;
+  transition: all 0.1s ease;
+  &:hover {
+    cursor: pointer;
+    color: $green;
+  }
+}
+
+.big-p {
+  font-size: 1.5em;
+  line-height: 1.5em;
+  @media (max-width: 600px) {
+    line-height: 1.5em;
+  }
+}
+
+.ml1 {
+  margin-left: 1rem;
+}
+
+.underline {
+  text-decoration:underline #00a775;
+}

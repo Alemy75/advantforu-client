@@ -1,8 +1,22 @@
 @import "../vars";
 
 .footer {
+  background-color: rgb(207, 207, 207);
+  color: rgb(72, 72, 72);
   border: 1px solid #cccccc50;
   padding: 1rem 0;
+  & .a {
+    color: rgb(72, 72, 72);
+    text-decoration: underline 1px dashed rgb(72, 72, 72);
+    font-style: normal;
+  }
+
+  & h3 {
+    color: rgb(72, 72, 72);
+    & span {
+      color:rgb(72, 72, 72)
+    }
+  }
   &__wrap {
     display: flex;
     justify-content: space-between;

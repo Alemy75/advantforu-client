@@ -1,9 +1,9 @@
 @import '../vars';
 
 .products {
+  background-color: #bfbfbf10;
   min-height: 100vh;
-  margin-top: 2em;
-  margin-bottom: 2rem;
+  padding: 2rem 0;
   &__wrap {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

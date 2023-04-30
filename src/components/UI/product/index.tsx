@@ -6,12 +6,13 @@ interface Props {
     title: string
     description: string
     price: number
+    color: string
 }
 
 const Product: FC<Props> = (props) => {
     return (
-        <article className="products__item">
-            <div className="top">
+        <article className="products__item bg-white">
+            <div className="top" style={{background: props.color}} >
                 <h3>{props.title}:</h3>
             </div>
             <div className="text">

@@ -23,7 +23,13 @@ const Posts: React.FC<Props> = ({ data, error }) => {
 							{
 								data?.map(post => (
 									<li key={post.id}>
-										<Link className='a' href={`/posts/${post.id}`}>{post.title}</Link>
+										<div className='border px-4 py-4 mb4'>
+											<h1 className='text-xl font-bold mb-4'>Title</h1>
+											<div className='flex justify-between'>
+												<span className='a inline w-[100px] truncate opacity-[0.7]' >{post.title}</span>
+												<Link className='a' href={`/posts/${post.id}`}>Подробнее..</Link>
+											</div>
+										</div>
 									</li>
 								))
 							}

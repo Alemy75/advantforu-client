@@ -19,8 +19,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
     }
 }
 
-
-
 const UserPage: NextPage<Props> = ({data, error}) => {
     const { query } = useRouter()
     return (

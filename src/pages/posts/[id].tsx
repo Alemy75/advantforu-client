@@ -3,6 +3,7 @@ import { NextPage, GetServerSideProps } from 'next'
 import React from 'react'
 import { TPost } from '.'
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 interface Props {
     data: TPost | undefined;
@@ -19,10 +20,22 @@ export const getServerSideProps: GetServerSideProps = async () => {
     }
 }
 
-const UserPage: NextPage<Props> = ({data, error}) => {
+const UserPage: NextPage<Props> = ({ data, error }) => {
     const { query } = useRouter()
     return (
-        <Post data={data} error={error}/>
+        <>
+            <Head>
+                <title>
+                    iPhone 12 XS Max For Sale in Colorado - Big Discounts | Apple
+                </title>
+                <meta
+                    name="description"
+                    content="Оптимизация HTML кода. Быстро! Качественно! Надежно!"
+                    key="desc"
+                />
+            </Head>
+            <Post data={data} error={error} />
+        </>
     )
 }
 

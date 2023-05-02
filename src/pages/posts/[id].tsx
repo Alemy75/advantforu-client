@@ -30,7 +30,7 @@ const UserPage: NextPage<Props> = ({ data, error }) => {
                 </title>
                 <meta
                     name="description"
-                    content="Оптимизация HTML кода. Быстро! Качественно! Надежно!"
+                    content="Оптимизация HTML кода. Быстро! Качественно!"
                     key="desc"
                 />
             </Head>

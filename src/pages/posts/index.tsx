@@ -1,32 +1,20 @@
 import Posts from '@/components/screens/posts'
-import { GetServerSideProps, NextPage } from 'next'
+import { IPostsProps } from '@/interfaces/post.interfaces'
+import { PostService } from '@/services/PostsService'
+import { GetStaticProps, NextPage } from 'next'  
 
-export type TPost = {
-    userId: number
-    id: number
-    title: string
-    completed: boolean
+const UsersPage: NextPage<IPostsProps> = ({posts}) => {
+    return <Posts posts={posts}/>
 }
 
-interface Props {
-    data: TPost[] | undefined;
-    error?: string;
-};
-
-export const getServerSideProps: GetServerSideProps = async () => {
-    try {
-        const res = await fetch('https://jsonplaceholder.typicode.com/posts')
-        const data = await res.json()
-        return { props: { data } }
-    } catch (error) {
-        return { props: { data: undefined, error: 'Failed to fetch data' } }
+export const getStaticProps: GetStaticProps<IPostsProps> = async () => {
+    const posts = await PostService.getPosts()
+    return {
+        props: {
+            posts
+        },
+        redirect: 60
     }
-}
-
-const UsersPage: NextPage<Props> = ({ data, error }) => {
-    console.log(data)
-
-    return <Posts data={data} error={error} />
-}
+} 
 
 export default UsersPage

@@ -16,6 +16,7 @@ body {
   flood-color: $primary;
   font-size: 14px;
   font-weight: 400;
+
   @media (max-width: 600px) {
     font-size: 14px;
   }
@@ -23,6 +24,7 @@ body {
 
 ul {
   padding: 0;
+
   li {
     all: unset;
     display: block;
@@ -32,7 +34,9 @@ ul {
   }
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   all: unset;
   display: block;
   font-weight: 700;
@@ -45,6 +49,7 @@ h1 {
     font-size: 3em;
   }
 }
+
 h2 {
   font-size: 2em;
   margin-bottom: 1rem;
@@ -71,7 +76,21 @@ button {
 .container {
   max-width: 1200px;
   margin: 0 auto;
+
   @media (max-width: 1200px) {
     max-width: 95%;
+  }
+}
+
+.shdw {
+  box-shadow: 0 0.5rem 0.5rem #00000005;
+}
+
+.border-hover {
+  border: 1px solid #cccccc50;
+  transition: all 0.1s ease;
+
+  &:hover {
+    border: 1px solid $green;
   }
 }

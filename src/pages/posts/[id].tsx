@@ -1,42 +1,42 @@
 import Post from '@/components/screens/posts/post'
-import { NextPage, GetServerSideProps } from 'next'
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import React from 'react'
-import { TPost } from '.'
-import { useRouter } from 'next/router';
-import Head from 'next/head';
+import { IPostProps, IPostsProps } from '@/interfaces/post.interfaces';
+import { PostService } from '@/services/PostsService';
+import { ParsedUrlQuery } from 'querystring';
 
-interface Props {
-    data: TPost | undefined;
-    error?: string;
-};
+interface Params extends ParsedUrlQuery {
+    id: string
+}
 
-export const getServerSideProps: GetServerSideProps = async () => {
-    try {
-        const res = await fetch(`https://jsonplaceholder.typicode.com/posts/1`)
-        const data = await res.json()
-        return { props: { data } }
-    } catch (error) {
-        return { props: { data: undefined, error: 'Failed to fetch data' } }
+const UserPage: NextPage<IPostProps> = ({ post }) => {
+    return (
+        <>
+            <Post post={post} />
+        </>
+    )
+}
+
+export const getStaticPaths: GetStaticPaths<Params> = async () => {
+    const posts = await PostService.getPosts()
+    return {
+        paths: posts.map(post => ({
+            params: {
+                id: post.id.toString()
+            }
+        })),
+        fallback: true
     }
 }
 
-const UserPage: NextPage<Props> = ({ data, error }) => {
-    const { query } = useRouter()
-    return (
-        <>
-            <Head>
-                <title>
-                    iPhone 12 XS Max For Sale in Colorado - Big Discounts | Apple
-                </title>
-                <meta
-                    name="description"
-                    content="Оптимизация HTML кода. Быстро! Качественно! Надежно!"
-                    key="desc"
-                />
-            </Head>
-            <Post data={data} error={error} />
-        </>
-    )
+export const getStaticProps: GetStaticProps<IPostProps> = async ({params}) => {
+    const post = await PostService.getPost(String(params?.id))
+    return {
+        props: {
+            post: post
+        },
+        redirect: 60
+    }
 }
 
 export default UserPage
